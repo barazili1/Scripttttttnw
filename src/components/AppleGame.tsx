@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Grid } from "./Grid";
-import { GameState, PredictionResult, AccessKey, Language, Platform, MULTIPLIERS } from "../types";
-import { translations } from "../utils/translations";
-import { audioManager } from "../utils/audioManager";
+import { Grid, MULTIPLIERS } from "./Grid";
+import { playSound } from "../services/audio";
+import { GameState, PredictionResult, AccessKey, Language, Platform } from "../types";
+import { translations } from "../translations";
 import {
   Zap,
   RotateCcw,
@@ -120,7 +120,7 @@ export const AppleGame: React.FC<AppleGameProps> = ({
 
     setGameState(GameState.ANALYZING);
     setPredictionProgress(0);
-    audioManager.playClick();
+    playSound("predict");
 
     for (let p = 15; p <= 100; p += 20) {
       setPredictionProgress(Math.min(100, p));
@@ -144,12 +144,12 @@ export const AppleGame: React.FC<AppleGameProps> = ({
       setActiveOddIndex(0);
     }
 
-    audioManager.playClick();
+    playSound("success");
     setGameState(GameState.PREDICTED);
   };
 
   const handleNewGame = () => {
-    audioManager.playClick();
+    playSound("click");
     setGameState(GameState.IDLE);
     setCurrentResult(null);
     setPredictionProgress(0);
@@ -369,7 +369,7 @@ export const AppleGame: React.FC<AppleGameProps> = ({
 
               <button
                 onClick={() => {
-                  audioManager.playClick();
+                  playSound("click");
                   setShowPromoDialog(false);
                 }}
                 className="absolute top-4 left-4 w-8 h-8 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-400 hover:text-white transition-all active:scale-90 z-20 cursor-pointer"
@@ -409,7 +409,7 @@ export const AppleGame: React.FC<AppleGameProps> = ({
                 onClick={() => {
                   navigator.clipboard.writeText(promoCode);
                   setPromoCopied(true);
-                  audioManager.playClick();
+                  playSound("click");
                   setTimeout(() => setPromoCopied(false), 2000);
                 }}
                 className="w-full bg-zinc-900 border-2 border-dashed border-[#ff1e38]/50 hover:border-[#ff1e38] rounded-2xl p-3.5 mb-5 flex items-center justify-between cursor-pointer group/code transition-all shadow-[0_0_20px_rgba(255,30,56,0.2)]"
@@ -447,7 +447,7 @@ export const AppleGame: React.FC<AppleGameProps> = ({
               <div className="w-full space-y-2.5">
                 <button
                   onClick={() => {
-                    audioManager.playClick();
+                    playSound("click");
                     window.open("https://bit.ly/4zs7qQy", "_blank");
                   }}
                   className="w-full h-12 bg-gradient-to-r from-[#ff1e38] to-[#d60e2a] hover:from-[#ff334b] hover:to-[#eb1c3e] text-white font-black text-xs uppercase tracking-wider rounded-2xl transition-all shadow-[0_0_25px_rgba(255,30,56,0.5)] flex items-center justify-center gap-2 cursor-pointer"
@@ -459,7 +459,7 @@ export const AppleGame: React.FC<AppleGameProps> = ({
 
                 <button
                   onClick={() => {
-                    audioManager.playClick();
+                    playSound("click");
                     setShowPromoDialog(false);
                   }}
                   className="w-full h-10 bg-zinc-900 border border-white/10 text-zinc-300 hover:text-white font-bold text-xs uppercase rounded-2xl transition-all cursor-pointer"
