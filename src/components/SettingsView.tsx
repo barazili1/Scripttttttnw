@@ -38,15 +38,10 @@ const SettingsView: React.FC<SettingsViewProps> = ({ onComplete, onBack, lang, t
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [verificationStage, setVerificationStage] = useState<"step1" | "step2" | "ready">("step1");
 
-  const platformName =
-    platform === "bizbet" ? "BIZBET" : platform === "linebet_v1" ? "Greenbet" : "Paripulse";
+  const platformName = "BIZBET";
   const promoCode = "B22";
   const platformImg =
-    platform === "bizbet"
-      ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_SHX7efEoJGTNOkFPVFyFdj1MQKfYEF6biEyL8jE_A&s=10"
-      : platform === "linebet_v1"
-        ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoEj5eP5tNE8iMZoLHE9i4q-JYLMiLmHaIMKatrmBePA&s=10"
-        : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg6-yMiToAplqRqnBnaYACm49Od_26EabD95SDPxqLgg&s=10";
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_SHX7efEoJGTNOkFPVFyFdj1MQKfYEF6biEyL8jE_A&s=10";
 
   const downloadUrl = "https://bit.ly/4hU1hph";
   const registerUrl = "https://bit.ly/4zs7qQy";

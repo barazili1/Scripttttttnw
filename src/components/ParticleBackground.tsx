@@ -51,7 +51,7 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ count = 
 
       const rgb =
         getComputedStyle(document.documentElement).getPropertyValue("--primary-color-rgb").trim() ||
-        "22, 163, 74";
+        "255, 30, 56";
 
       particles.forEach((p, i) => {
         p.x += p.vx;

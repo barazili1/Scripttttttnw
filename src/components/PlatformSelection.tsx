@@ -15,17 +15,17 @@ const MotionButton = motion.button as any;
 const PlatformSelection: React.FC<PlatformSelectionProps> = ({ onSelect }) => {
   const [selected, setSelected] = useState<Platform>("bizbet");
   const [isConnecting, setIsConnecting] = useState(false);
-  const [onlineUsers, setOnlineUsers] = useState(3840);
+  const [onlineUsers, setOnlineUsers] = useState(4120);
 
   const platforms = [
     {
       id: "bizbet" as Platform,
       name: "BIZBET",
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_SHX7efEoJGTNOkFPVFyFdj1MQKfYEF6biEyL8jE_A&s=10",
-      tagline: "المنصة الرسمية المعتمدة · سيرفر فوري فائق الدقة",
-      accuracy: "٩٩.٤٪",
-      latency: "9ms",
-      geo: "VIP المباشر",
+      tagline: "السيرفر الرسمي المعتمد · دقة خوارزمية فائقة",
+      accuracy: "٩٩٪",
+      latency: "10ms",
+      geo: "سيرفر VIP حصري",
       recommended: true,
     },
   ];
